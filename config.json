@@ -1,7 +1,6 @@
-
-
 "longest_train_points": 10
-"destination_deck": ["city1", "city2", points_worth]
+"number_of_wagons": 45
+"destination_deck": [["city1", "city2", points_worth], ...]
 "train_length_value": {"1": 1,
                       "2": 2,
                       "3": 4,
@@ -9,4 +8,4 @@
                       "5": 10,
                       "6": 15}
 
-"city_mapping": ["city1", "city2", length, color]
+"city_mapping": [["city1", "city2", length, color], ...]
