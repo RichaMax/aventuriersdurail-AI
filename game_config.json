@@ -7,15 +7,15 @@
   "roads_color": ["pink", "white", "blue", "yellow", "orange", "black", "red", "green"],
   "destination_deck": [
     ["San Fransisco", "Atlanta", 17],
-    ["Winnipec", "Houston", 12],
+    ["Winnipeg", "Houston", 12],
     ["Los Angeles", "Miami", 20],
     ["Boston", "Miami", 12],
     ["Chicago", "New Orleans", 7],
     ["Los Angeles", "Chicago", 16],
-    ["Winnipec", "Little Rock", 11],
+    ["Winnipeg", "Little Rock", 11],
     ["Los Angeles", "New York", 21],
     ["Montreal", "New Orleans", 13],
-    ["Calcary", "Salt lake city", 7],
+    ["Calgary", "Salt lake city", 7],
     ["Portland", "Nashville", 17],
     ["New York", "Atlanta", 6],
     ["Kansas city", "Houston", 5],
@@ -28,10 +28,10 @@
     ["Chicago", "Santa Fe", 9],
     ["Seattle", "Los Angeles", 9],
     ["Dallas", "New york", 11],
-    ["Sault ste mary", "Oklahoma city", 9],
-    ["Sault ste mary", "Nashville", 8],
+    ["Sault st marie", "Oklahoma city", 9],
+    ["Sault st marie", "Nashville", 8],
     ["Seattle", "New York", 22],
-    ["Denver", "Pittsburch", 11],
+    ["Denver", "Pittsburgh", 11],
     ["Denver", "El paso", 4],
     ["Duluth", "El paso", 10],
     ["Vancouver", "Montreal", 20],
@@ -45,5 +45,25 @@
     "5": 10,
     "6": 15
   },
-  "city_mapping": {"city1": {"city2":  [[length, color], ...]}}
+  "city_mapping": {
+    "Vancouver":
+    {
+      "Calgary": [[3, "neutral", false]],
+      "Seattle": [[1, "neutral", false], [1, "neutral", false]]
+    },
+    "Seattle":
+    {
+      "Calgary": [[4, "neutral", false]],
+      "Vancouver": [[1, "neutral", false], [1, "neutral", false]],
+      "Helena": [[6, "yellow", false]],
+      "Portland": [[1, "neutral", false], [1, "neutral", false]]
+    },
+    "Calgary":
+    {
+      "Winnipeg": [[6, "white", false]],
+      "Helena": [[4, "neutral", false]],
+      "Seattle": [[4, "neutral", false]],
+      "Vancouver": [[3, "neutral", false]]
+    },
+  }
 }
