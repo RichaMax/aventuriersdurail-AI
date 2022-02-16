@@ -65,5 +65,60 @@
       "Seattle": [[4, "neutral", false]],
       "Vancouver": [[3, "neutral", false]]
     },
+    "Portland":
+    {
+      "Seattle": [[1, "neutral", false], [1, "neutral", false]],
+      "Salt lake city": [[6, "blue", false]],
+      "San Francisco" : [[5, "green", false], [5, "pink", false]]
+    },
+    "Helena":
+    {
+      "Seattle": [[6, "yellow", false]],
+      "Calgary": [[4, "neutral", false]],
+      "Winnipeg": [[4, "blue", false]],
+      "Duluth": [[6, "orange", false]],
+      "Omaha": [[5, "red", false]],
+      "Denver": [[4, "green", false]],
+      "Salt lake city": [[3, "pink", false]]
+    },
+    "Salt lake city":
+    {
+      "Portland": [[6, "blue", false]],
+      "Helena": [[3, "pink", false]],
+      "Denver": [[3, "red", false], [3, "yellow", false]],
+      "Las Vegas": [[3, "orange", false]],
+      "San Francisco": [[5, "orange", false], [5, "white", false]]
+    },
+    "San Francisco":
+    {
+      "Portland": [[5, "green", false], [5, "pink", false]],
+      "Salt lake city": [[5, "white", false], [5, "orange", false]],
+      "Los Angeles": [[3, "yellow", false], [3, "pink", false]]
+    },
+    "Winnipeg":
+    {
+      "Calgary": [[6, "white", false]],
+      "Sault st marie": [[6, "neutral", false]],
+      "Duluth": [[4, "black", false]],
+      "Helena": [[4, "blue", false]]
+    },
+    "Las Vegas":
+    {
+      "Salt lake city": [[3, "orange", false]],
+      "Los Angeles": [[2, "neutral", false]]
+    },
+    "Los Angeles":
+    {
+      "San Francisco": [[3, "yellow", false], [3, "pink", false]],
+      "Las Vegas": [[2, "neutral", false]],
+      "Phoenix": [[3, "nuetral", false]],
+      "El paso": [[6, "black", false]]
+    },
+    "Phoenix":
+    {
+      "Los Angeles": [[]],
+      "Denver": [[]],
+      "El paso": [[]]
+    }
   }
 }
