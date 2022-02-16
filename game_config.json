@@ -116,9 +116,196 @@
     },
     "Phoenix":
     {
-      "Los Angeles": [[]],
-      "Denver": [[]],
-      "El paso": [[]]
+      "Los Angeles": [[3, "neutral", false]],
+      "Denver": [[5, "white", false]],
+      "Santa Fe": [[3, "neutral", false]],
+      "El paso": [[3, "neutral", false]]
+    },
+    "Denver":
+    {
+      "Phoenix": [[5, "white", false]],
+      "Salt lake city": [[3, "yellow", false], [3, "red", false]],
+      "Helena": [[4, "green", false]],
+      "Omaha": [[4, "pink", false]],
+      "Kansas city": [[4, "black", false], [4, "orange", false]],
+      "Oklahoma city": [[4, "red", false]],
+      "Santa Fe": [[2, "neutral", false]]
+    },
+    "Omaha":
+    {
+      "Denver": [[4, "pink", false]],
+      "Helena": [[5, "red", false]],
+      "Duluth": [[2, "neutral", false], [2, "neutral", false]],
+      "Chicago": [[4, "blue", false]],
+      "Kansas city": [[1, "neutral", false], [1, "neutral", false]]
+    },
+    "Duluth":
+    {
+      "Sault st marie": [[3, "neutral", false]],
+      "Toronto": [[6, "pink", false]],
+      "Chicago": [[3, "red", false]],
+      "Omaha": [[2, "neutral", false], [2, "neutral", false]],
+      "Helena": [[6, "orange", false]],
+      "Winnipeg": [[4, "black", false]]
+    },
+    "Sault st marie":
+    {
+      "Winnipeg": [[5, "neutral", false]],
+      "Duluth": [[3, "neutral", false]],
+      "Toronto": [[2, "neutral", false]],
+      "Montreal": [[5, "black", false]]
+    },
+    "El paso":
+    {
+      "Los Angeles": [[6, "black", false]],
+      "Phoenix": [[3, "neutral", false]],
+      "Santa Fe": [[2, "neutral", false]],
+      "Oklahoma city": [[5, "yellow", false]],
+      "Dallas": [[4, "red", false]],
+      "Houston": [[6, "green", false]]
+    },
+    "Santa Fe":
+    {
+      "Phoenix": [[3, "neutral", false]],
+      "El paso": [[2, "neutral", false]],
+      "Oklahoma city": [[3, "blue", false]],
+      "Denver": [[2, "neutral", false]]
+    },
+    "Oklahoma city":
+    {
+      "Santa Fe": [[3, "blue", false]],
+      "El paso": [[5, "yellow", false]],
+      "Dallas": [[2, "neutral", false], [2, "neutral", false]],
+      "Little Rock": [[2, "neutral", false]],
+      "Kansas city": [[2, "neutral", false], [2, "neutral", false]],
+      "Denver": [[4, "red", false]]
+    },
+    "Kansas city":
+    {
+      "Denver": [[4, "black", false], [4, "orange", false]],
+      "Oklahoma city": [[2, "neutral", false], [2, "neutral", false]],
+      "Saint Louis": [[2, "blue", false], [2, "pink", false]],
+      "Omaha": [[1, "neutral", false], [1, "neutral", false]]
+    },
+    "Chicago":
+    {
+      "Omaha": [[4, "blue", false]],
+      "Duluth": [[3, "red", false]],
+      "Toronto": [[4, "white", false]],
+      "Pittsburgh": [[3, "orange", false], [3, "black", false]],
+      "Saint Louis": [[2, "white", false], [2, "green", false]]
+    },
+    "Toronto":
+    {
+      "Duluth": [[6, "pink", false]],
+      "Sault st marie": [[2, "neutral", false]],
+      "Montreal": [[3, "neutral", false]],
+      "Pittsburgh": [[2, "neutral", false]],
+      "Chicago": [[4, "white", false]]
+    },
+    "Montreal":
+    {
+      "Sault st marie": [[5, "black", false]],
+      "Toronto": [[3, "neutral", false]],
+      "New York": [[3, "blue", false]],
+      "Boston": [[2, "neutral", false], [2, "neutral", false]]
+    },
+    "Houston":
+    {
+      "El paso": [[6, "green", false]],
+      "Dallas": [[1, "neutral", false], [1, "neutral", false]],
+      "New Orleans": [[2, "neutral", false]]
+    },
+    "Dallas": {
+      "Houston": [[1, "neutral", false], [1, "neutral", false]],
+      "El paso": [[4, "red", false]],
+      "Oklahoma city": [[2, "neutral", false], [2, "neutral", false]],
+      "Little Rock": [[2, "neutral", false]]
+    },
+    "Little Rock":
+    {
+      "Dallas": [[2, "neutral", false]],
+      "Oklahoma city": [[2, "neutral", false]],
+      "Saint Louis": [[2, "neutral", false]],
+      "Nashville": [[3, "white", false]],
+      "New Orleans": [[3, "green", false]]
+    },
+    "Saint Louis":
+    {
+      "Little Rock": [[2, "neutral", false]],
+      "Nashville": [[2, "neutral", false]],
+      "Kansas city": [[2, "blue", false], [2, "pink", false]],
+      "Chicago": [[2, "white", false], [2, "green", false]],
+      "Pittsburgh": [[5, "green", false]]
+    },
+    "Pittsburgh":
+    {
+      "Saint Louis": [[5, "green", false]],
+      "Nashville": [[4, "yellow", false]],
+      "Chicago": [[3, "orange", false], [3, "black", false]],
+      "Toronto": [[2, "neutral", false]],
+      "New York": [[2, "white", false], [2, "green", false]]
+    },
+    "New York":
+    {
+      "Pittsburgh": [[2, "white", false], [2, "green", false]],
+      "Washington": [[2, "orange", false], [2, "black", false]],
+      "Boston": [[2, "yellow", false], [2, "red", false]],
+      "Montreal": [[3, "blue", false]]
+    },
+    "Boston":
+    {
+      "New york": [[2, "yellow", false], [2, "red", false]],
+      "Montreal": [[2, "neutral", false], [2, "neutral", false]]
+    },
+    "New Orleans":
+    {
+      "Little Rock": [[3, "green", false]],
+      "Houston": [[2, "neutral", false]],
+      "Miami": [[6, "red", false]],
+      "Atlanta": [[4, "yellow", false], [4, "orange", false]]
+    },
+    "Nashville":
+    {
+      "Little Rock": [[3, "white", false]],
+      "Atlanta": [[1, "neutral", false]],
+      "Saint Louis": [[2, "neutral", false]],
+      "Pittsburgh": [[4, "yellow", false]],
+      "Raleigh": [[3, "black", false]]
+    },
+    "Washington":
+    {
+      "Raleigh": [[2, "neutral", false], [2, "neutral", false]],
+      "Pittsburgh": [[2, "neutral", false]],
+      "New York": [[2, "orange", false], [2, "black", false]]
+    },
+    "Miami":
+    {
+      "New orleans": [[6, "red", false]],
+      "Atlanta": [[5, "blue", false]],
+      "Charleston": [[4, "pink", false]]
+    },
+    "Atlanta":
+    {
+      "Miami": [[5, "blue", false]],
+      "Charleston": [[2, "neutral", false]],
+      "New Orleans": [[4, "yellow", false], [4, "orange", false]],
+      "Nashville": [[1, "neutral", false]],
+      "Raleigh": [[2, "neutral", false], [2, "neutral", false]]
+    },
+    "Charleston":
+    {
+      "Raleigh": [[2, "neutral", false], [2, "neutral", false]],
+      "Atlanta": [[2, "neutral", false], [2, "neutral", false]],
+      "Miami": [[4, "pink", false]]
+    },
+    "Raleigh":
+    {
+      "Atlanta": [[2, "neutral", false], [2, "neutral", false]],
+      "Charleston": [[2, "neutral", false], [2, "neutral", false]],
+      "Washington": [[2, "neutral", false], [2, "neutral", false]],
+      "Pittsburgh": [[2, "neutral", false], [2, "neutral", false]],
+      "Nashville": [[3, "black", false]]
     }
   }
 }
