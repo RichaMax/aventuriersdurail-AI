@@ -1,6 +1,10 @@
 {
   "longest_train_points": 10,
-  "number_of_wagons": 45,
+  "player_colors": ["red", "blue", "green", "yellow", "black"],
+  "number_of_wagons_per_player": 45,
+  "number_of_train_per_color": 12,
+  "number_of_joker": 14,
+  "roads_color": ["pink", "white", "blue", "yellow", "orange", "black", "red", "green"],
   "destination_deck": [
     ["San Fransisco", "Atlanta", 17],
     ["Winnipec", "Houston", 12],
