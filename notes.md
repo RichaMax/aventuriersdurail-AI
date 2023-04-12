@@ -3,6 +3,13 @@
 
 - etat de la carte (ville reliées - par qui - et chemin libre, c'est la matrice route matrix avec les id des joueur)
 
+- pioche
+    - taille de la pioche (nb cartes restantes)
+
+    - 5 cartes wagon face visible de la pioche (encodé)
+
+    - nombre de cartes dans la défausses
+
 - Nombre de wagon restant
 
 - nombre de wagon restant joueur i
@@ -11,31 +18,50 @@
 
 - carte wagons en main (encodé)
 
-- carte vagon face visible de la pioche (encodé)
-
-- taille de la pioche (nb cartes restantes)
-
 - cartes destination à faire (plein de fois des sous matrice de la matrice route avec juste les villes, ou un juste une sous matrice correspondant à la addition de toutes les sous matrices [modulo(1)])
 
 - cartes en main joueur i
 
 - ...
 
-- nombre de point (avec les cartes destination ou sans ? )
+- nombre de point avec les cartes destinations (et donc bonus et malus)
 
 - nombre de point joueur i (sans les cartes destinations parce que tu connais jamais celles de tes adversaires sauf après la game)
 
 - ...
 
+- Cartes wagons à piocher si action qui le fait
+
+- Les actions possible
+
 # les actions
 
-ya des action qui termine le tour cash et d'autres non.
+Soit on fait ça
 
-Ici on veut d'abord voir si les modèles vont arriver à apprendre comment choisir les cartes wagons (les cartes destination etant pour l'instant prisent aléatoirement)
+>ya des action qui termine le tour et d'autres non.
 
-- Prendre des cartes destination => action final directement
-- Poser des wagons sur un tronçons => action final
-- Piocher une carte wagon => c'est pas finit faut en repiocher une (on call 2 fois la même méthode dans ce cas)
+> Ici on veut d'abord voir si les modèles vont arriver à apprendre comment choisir les cartes wagons (les cartes destination etant pour l'instant prisent aléatoirement)
+
+>- Prendre des cartes destination => action final directement
+>- Poser des wagons sur un tronçons => action final
+>- Piocher une carte wagon => c'est pas finit faut en repiocher une (on call 2 fois la même méthode dans ce cas)
+
+Soit ça
+
+>a chaque tour tu fais 1 ou 2 actions. Du coup un tour ça peut être un ou deux step
+> 
+>
+> à chaque step tu calculs un masque des actions possible pour le joueur.
+>- Tu poses un train => action poser un train
+>- Tu pioches une carte destination et tu les choisis => (piocher destinations, choisir une combinaison parmi tout les arrangements possible: choisir la première carte destination, choisir les deux premiere, choisir premiere et troisieme, les trois, ...)
+>- tu piches deux fois un carte wagon. Tu choisis parmi, la face caché ou une des 5 face visible
+>
+>
+>
+>
+>
+>
+
 
 # Par rapport aux cartes destinations
 
