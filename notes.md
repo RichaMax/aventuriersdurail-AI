@@ -34,6 +34,27 @@
 
 - Les actions possible
 
+# Les cartes
+
+Ya 9 couleurs (8 couleurs + joker) soit je fais du one hot sur 9 mais ça veut dire la main d'un joueur c'est une matrice sparce enorme (genre 110*9) avec souvent les derniers lignes à 0
+
+ou un vecteur de taille 9 qui indique le nombre de cartes wagon que on a pour la couleur (pos => 0 c'est les roses, 1 les blancs, ... 8 c'est les jockers)
+
+ce qui fait pour la pioche, soit une matrice 5*9 soit une vecteur de 9 comme la main d'un joueur 
+
+# la carte du jeu
+
+2 matrice d'adjacences, une pour les chemin, une pour les doublons. Elles sont en dimension 3
+
+nb_villes*nb_villes*9 <- vecteur composé de l'id de l'occupant du chemin (0 si personne) et vecteur de taille 8 (et à la position de la couleur la taille du chemin, zero ailleur)
+
+neutre toutes le couleur ont le nb
+
+sinon c'est taille 4
+
+nb_villes*nb_villes*taille_du_plus_grand_segment*8
+et une autre pour les id => nb_villes*nb_villes
+
 # les actions
 
 Soit on fait ça
