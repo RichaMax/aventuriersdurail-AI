@@ -12,30 +12,32 @@ class gameEnv(gymnasium.Env):
         with open(path_to_game_parameters, 'r') as f:
             game_parameters = json.load(f)
         # Game Variables
-        self.train_deck = random.shuffle(
-            game_parameters['number_of_train_per_color'] * game_parameters['roads_color'] + 14 * ['joker']
-        )
-        self.played_train_cards = [] # this one has to be reshuffle and add back to the train deck when empty
-        self.destination_deck = random.shuffle(game_parameters['destination_cards'])
-        self.played_destination_cards = [] # this one should not be added back to the destination deck
+        wagons_cards = game_parameters['number_of_train_per_color'] * game_parameters['roads_color'] + 14 * ['joker']
+        random.shuffle(wagons_cards)
+        destinations_cards = game_parameters['destination_deck']
+        random.shuffle(destinations_cards)
+        self.train_deck = wagons_cards
+        self.played_train_cards = []  # this one has to be reshuffle and add back to the train deck when empty
+        self.destination_deck = destinations_cards
+        self.played_destination_cards = []  # this one should not be added back to the destination deck
         self.wagons_per_player = game_parameters['number_of_wagons_per_player']
         self.bonus_points = game_parameters['longest_train_points']
-        self.train_lenght_value = game_parameters['train_lenght_value']
+        self.train_length_value = game_parameters['train_length_value']
         self.main_roads_matrix, self.double_roads_matrix = create_adjacency_matricies(game_parameters['city_mapping'])
         # observation space
-        observation_space = Dict(
+        self.observation_space = Dict(
             {
                 "player_id": Discrete(nb_of_players, start=1),
                 "decks_status": Dict(
                     {
-                        "deck_size": Discrete(110), # faut enlever nb_player *4 ?
+                        "deck_size": Discrete(110),  # faut enlever nb_player *4 ?
                         "face_up_wagons": MultiDiscrete([5 for _ in range(len(game_parameters['roads_color']))]),
                         "discard_deck": Discrete(110),
-                        "remaning_destinatons_cards": Discrete(30) # faut enlever nb_players*3 ?
+                        "remaining_destinations_cards": Discrete(30)  # faut enlever nb_players*3 ?
                     }
                 ),
-                "main_roads": self.main_roads_matrix,
-                "double_roads": self.double_roads_matrix,
+                "main_roads": MultiDiscrete(6 * np.ones(self.main_roads_matrix.shape)),
+                "double_roads": MultiBinary(self.double_roads_matrix.shape),
                 "current_player_status": Dict(
                     {
                         "wagon_cards": MultiDiscrete([game_parameters['number_of_train_per_color']
@@ -43,10 +45,10 @@ class gameEnv(gymnasium.Env):
                                                       ] + [14]
                                                      ),
                         "nb_wagons_left": Discrete(self.wagons_per_player),
-                        "destinations_todo": MultiDiscrete(np.ones(self.main_roads_matrix.shape[:2]))
+                        "destinations_todo": MultiDiscrete(np.ones(self.main_roads_matrix.shape[:2])),
+                        "nb_of_points": Discrete(400)  # random number
                     }
-                ),
-                "other_players_status": Dict({})
+                )
             }
         )
 
@@ -54,10 +56,10 @@ class gameEnv(gymnasium.Env):
         pass
 
     def compute_longest_train(self):
-        #TODO: implement longest train computation (soit faire un truc gitan soit representer la carte sous forme de graph
+        # TODO: implement longest train computation (soit faire un truc gitan soit representer la carte sous forme de graph
         # et faire calcul du plus long chemin pour chaque couleur ? )
         pass
-    
+
     def reset(self):
         pass
 
