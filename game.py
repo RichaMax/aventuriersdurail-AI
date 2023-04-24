@@ -4,7 +4,7 @@ import json
 import random
 import numpy as np
 
-from utils import create_adjacency_matricies
+from utils import create_adjacency_matricies, COLOR_ID_DIC
 
 
 class gameEnv(gymnasium.Env):
@@ -16,13 +16,13 @@ class gameEnv(gymnasium.Env):
         random.shuffle(wagons_cards)
         destinations_cards = game_parameters['destination_deck']
         random.shuffle(destinations_cards)
-        self.train_deck = wagons_cards
+        self.train_deck = [COLOR_ID_DIC[w] for w in wagons_cards]
         self.played_train_cards = []  # this one has to be reshuffle and add back to the train deck when empty
         self.destination_deck = destinations_cards
-        self.played_destination_cards = []  # this one should not be added back to the destination deck
+        self.seen_destination_cards = []  # this one should not be added back to the destination deck
         self.wagons_per_player = game_parameters['number_of_wagons_per_player']
         self.bonus_points = game_parameters['longest_train_points']
-        self.train_length_value = game_parameters['train_length_value']
+        self.train_length_value = game_parameters['train_length_values']
         self.main_roads_matrix, self.double_roads_matrix = create_adjacency_matricies(game_parameters['city_mapping'])
         # observation space
         self.observation_space = Dict(
@@ -31,24 +31,25 @@ class gameEnv(gymnasium.Env):
                 "decks_status": Dict(
                     {
                         "deck_size": Discrete(110),  # faut enlever nb_player *4 ?
-                        "face_up_wagons": MultiDiscrete([5 for _ in range(len(game_parameters['roads_color']))]),
+                        "face_up_wagons": MultiDiscrete([6 for _ in range(len(game_parameters['roads_color']))] + [3]),  # toutes les couleurs + joker
                         "discard_deck": Discrete(110),
                         "remaining_destinations_cards": Discrete(30)  # faut enlever nb_players*3 ?
                     }
                 ),
-                "main_roads": MultiDiscrete(6 * np.ones(self.main_roads_matrix.shape)),
-                "double_roads": MultiBinary(self.double_roads_matrix.shape),
+                "main_roads": MultiDiscrete(7 * np.ones(self.main_roads_matrix.shape)),  # les chemins les plus long font 6, et faudrait que la premiere dim soit de taille nb joueur max +1
+                "double_roads": MultiDiscrete(7 * np.ones(self.double_roads_matrix.shape)),
                 "current_player_status": Dict(
                     {
-                        "wagon_cards": MultiDiscrete([game_parameters['number_of_train_per_color']
+                        "wagon_cards": MultiDiscrete([game_parameters['number_of_train_per_color'] + 1
                                                       for _ in range(len(game_parameters['roads_color']))
-                                                      ] + [14]
+                                                      ] + [15]
                                                      ),
-                        "nb_wagons_left": Discrete(self.wagons_per_player),
-                        "destinations_todo": MultiDiscrete(np.ones(self.main_roads_matrix.shape[:2])),
+                        "nb_wagons_left": Discrete(self.wagons_per_player+1),
+                        "destinations_todo": MultiBinary(self.main_roads_matrix.shape[:2]),
                         "nb_of_points": Discrete(400)  # random number
                     }
-                )
+                ),
+                "pickable_dest_cards": MultiBinary((3, self.main_roads_matrix.shape[0], self.main_roads_matrix.shape[1]))
             }
         )
 

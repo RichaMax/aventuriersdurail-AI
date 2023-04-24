@@ -17,7 +17,7 @@ COLOR_ID_DIC = {"red": 0,
 
 def create_adjacency_matricies(mapping, nb_of_colors=8):
     all_cities = mapping.keys()
-    encoded_cities = {k: i for i,k in enumerate(all_cities)}
+    encoded_cities = {k: i for i, k in enumerate(all_cities)}
     main_roads_matrix = np.zeros((len(all_cities), len(all_cities), nb_of_colors+1))
     double_roads_matrix = np.zeros((len(all_cities), len(all_cities), nb_of_colors+1))
 
@@ -38,4 +38,4 @@ def create_adjacency_matricies(mapping, nb_of_colors=8):
                     main_roads_matrix[city_enc][linked_city_enc] = road_vector
                 else:
                     double_roads_matrix[city_enc][linked_city_enc] = road_vector
-    return np.array(main_roads_matrix), np.array(double_roads_matrix)
+    return main_roads_matrix, double_roads_matrix

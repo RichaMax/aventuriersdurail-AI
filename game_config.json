@@ -37,7 +37,7 @@
     ["Vancouver", "Montreal", 20],
     ["Helena", "Los Angeles", 8]
   ],
-  "train_length_value": {
+  "train_length_values": {
     "1": 1,
     "2": 2,
     "3": 4,
